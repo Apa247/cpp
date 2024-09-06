@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 20:30:23 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/05 20:50:24 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:08:55 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,5 @@ int main(int argc, char **argv)
 	}
 	return 0;
 }
+
+// std::string x = std::string(argv[i]);
