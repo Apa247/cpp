@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:43:37 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/06 18:30:27 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/06 18:52:46 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,4 @@ void	PhoneBook::addContact(void)
 		this->contact[this->c_index].setDarkestSecret(input);
 		this->c_index++;
 	}
-	else
-		std::cout << "PhoneBook is full" << std::endl;
 }
