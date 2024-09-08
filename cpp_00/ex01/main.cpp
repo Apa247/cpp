@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:32:14 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/06 19:13:47 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/08 01:41:27 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,16 @@ int main(void)
 	{
 		std::cout << "Enter ADD, SEARCH or EXIT: ";
 		std::getline(std::cin, input);
+		if (input == "ADD" )
+			phonebook.addContact();
+		else if (input == "SEARCH")
+			phonebook.searchContact();
+		else
 		if (std::cin.eof()) // Verifica si se ha alcanzado el EOF
         {
             std::cout << std::endl; // Opcional: Imprime una nueva línea para una salida más limpia
             break; // Sale del bucle
         }
-		if (input == "ADD" )
-			phonebook.addContact();
-		else if (std::cin.eof())
-			continue;
 	} 
 	return (0);
 }
