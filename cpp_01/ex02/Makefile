@@ -5,24 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/10 17:41:20 by daparici          #+#    #+#              #
-#    Updated: 2024/09/19 15:54:34 by daparici         ###   ########.fr        #
+#    Created: 2024/09/19 17:11:42 by daparici          #+#    #+#              #
+#    Updated: 2024/09/19 17:13:38 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = hi_brainz
 
-vpath			%.hpp include
 vpath			%.cpp src
 vpath			%.o obj
 
-INCLUDES = -Iinclude/
-SRC = Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
+SRC = main.cpp
 OBJ_DIR = obj
 
 CC = c++
 SANITIZER	=   -g3 -fsanitize=address -g
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 $(INCLUDES) $(SANITIZER)
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 $(SANITIZER)
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

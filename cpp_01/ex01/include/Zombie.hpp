@@ -5,29 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/10 17:41:23 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/10 18:01:04 by daparici         ###   ########.fr       */
+/*   Created: 2024/09/19 16:12:05 by daparici          #+#    #+#             */
+/*   Updated: 2024/09/19 18:24:18 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
+#include <sstream> // Include this at the top of zombieHorde.cpp
 
 class Zombie
 {
 	private:
 		std::string name;
-
 	public:
-		Zombie(/* args */);
+		void	announce(void) const;
+		void	setName(std::string name);
+	
+		Zombie(void);
+		Zombie(std::string name);
 		~Zombie();
-		
-		void announce(void);
 };
 
-Zombie::Zombie(/* args */)
-{
-}
+Zombie* 		newZombie( std::string name );
+Zombie*			zombieHorde( int N, std::string name );
+std::string 	intToString(int number);
 
-Zombie::~Zombie()
-{
-}

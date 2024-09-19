@@ -5,19 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/10 17:41:20 by daparici          #+#    #+#              #
-#    Updated: 2024/09/19 15:54:34 by daparici         ###   ########.fr        #
+#    Created: 2024/09/19 16:06:18 by daparici          #+#    #+#              #
+#    Updated: 2024/09/19 16:11:07 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = brainz
 
 vpath			%.hpp include
 vpath			%.cpp src
 vpath			%.o obj
 
 INCLUDES = -Iinclude/
-SRC = Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
+
+SRC = main.cpp Zombie.cpp zombieHorde.cpp
 OBJ_DIR = obj
 
 CC = c++
