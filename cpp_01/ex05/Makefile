@@ -6,7 +6,7 @@
 #    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/21 01:02:08 by daparici          #+#    #+#              #
-#    Updated: 2024/09/21 01:05:00 by daparici         ###   ########.fr        #
+#    Updated: 2024/09/21 14:15:16 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,13 @@ vpath			%.hpp includes
 vpath			%.cpp src
 vpath			%.o obj
 
+INCLUDE		=   -Iinclude/
 SRC = main.cpp  Harl.cpp
 OBJ_DIR = obj
 
 CC = c++
 SANITIZER	=   -g3 -fsanitize=address -g
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 $(INCLUDES) $(SANITIZER)
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 $(INCLUDE) $(SANITIZER)
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
