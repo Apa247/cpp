@@ -6,13 +6,18 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 01:08:51 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/21 13:55:20 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/21 14:54:13 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-Harl::Harl() {}
+Harl::Harl() {
+    levels["1"] = &Harl::debug;
+    levels["2"] = &Harl::info;
+    levels["3"] = &Harl::warning;
+    levels["4"] = &Harl::error;
+}
 
 Harl::~Harl() {}
 
@@ -33,17 +38,10 @@ void Harl::error(void) {
 }
 
 void Harl::complain(std::string level) {
-    std::map<std::string, void (Harl::*)(void)> levels = {
-        {"1", &Harl::debug},
-        {"2", &Harl::info},
-        {"3", &Harl::warning},
-        {"4", &Harl::error}
-    };
-
-    auto it = levels.find(level);
+    std::map<std::string, void (Harl::*)(void)>::iterator it = levels.find(level);
     if (it != levels.end()) {
         (this->*(it->second))();
     } else {
-        std::cout << "Unknown level: " << level << std::endl;
+        std::cout << "Nivel desconocido: " << level << std::endl;
     }
 }
