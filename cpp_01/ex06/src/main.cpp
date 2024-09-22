@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 23:59:01 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/22 00:00:02 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/22 17:45:23 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,35 @@ int	main(void)
 {
 	std::string	option;
 	Harl		harl;
+	int			i;
 
 	while (1)
 	{
 		print_menu();
 		option = get_option();
+		i = atoi(option.c_str());
 		if (option == "")
 		{
 			std::cout << "Goodbye!" << std::endl;
 			break;
 		}
-		else
+		else	
 		{
-			harl.complain(option);
+			switch (i)
+			{
+				case 1:
+					harl.complain("0");
+				case 2:
+					harl.complain("1");
+				case 3:
+					harl.complain("2");
+				case 4:
+					harl.complain("3");
+					break;
+				default:
+					std::cout << "Invalid option" << std::endl;
+					break;
+			}
 		}
 	}
 	return 0;

@@ -6,13 +6,13 @@
 #    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/21 23:57:59 by daparici          #+#    #+#              #
-#    Updated: 2024/09/21 23:58:00 by daparici         ###   ########.fr        #
+#    Updated: 2024/09/22 17:46:39 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-NAME = harl
+NAME = harlFilter
 
 vpath			%.hpp includes
 vpath			%.cpp src
