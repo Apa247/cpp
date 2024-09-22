@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 23:58:57 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/22 01:02:41 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/22 01:19:07 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void Harl::complain(std::string level) {
 				this->warning();
 				std::cout << std::endl;
 				this->error();
-				break;
 			case	2:
 				this->info();
 				std::cout << std::endl;
