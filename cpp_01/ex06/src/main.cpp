@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 23:59:01 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/22 17:45:23 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/22 19:07:09 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,13 @@ int	main(void)
 			{
 				case 1:
 					harl.complain("0");
+					// fall through
 				case 2:
 					harl.complain("1");
+					// fall through
 				case 3:
 					harl.complain("2");
+					// fall through
 				case 4:
 					harl.complain("3");
 					break;
