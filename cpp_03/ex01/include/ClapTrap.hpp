@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 09:30:57 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/27 11:07:22 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/27 18:34:47 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class	ClapTrap
 		ClapTrap(ClapTrap const & src);
 		
 		// Destructor
-		~ClapTrap(void);
+		virtual	~ClapTrap(void);
 
 		// Overload operator
 		ClapTrap & operator=(ClapTrap const & rhs);

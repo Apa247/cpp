@@ -6,7 +6,7 @@
 #    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/27 09:23:58 by daparici          #+#    #+#              #
-#    Updated: 2024/09/27 11:31:13 by daparici         ###   ########.fr        #
+#    Updated: 2024/09/27 18:14:36 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ GREEN		=	\033[32m
 YELLOW		=	\033[33m
 BLUE		=	\033[34m
 RED			=	\033[31m
+PURPLE		=	\033[35m
 UP			=	\033[A
 CUT			=	\033[K
 
@@ -59,12 +60,12 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@echo "$(YELLOW)Compiling [$(NAME)]...$(RESET)"
 	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(GREEN)Finished [$(NAME)]$(RESET)"
+	@echo "$(PURPLE)Finished [$(NAME)]$(RESET)"
 
 clean:
 	@if [ -d "$(OBJ_DIR)" ]; then \
 	rm -rf $(OBJ_DIR); \
-	echo "$(BLUE)Deleting all objects from /ex01...$(RESET)"; else \
+	echo "$(RED)Deleting all objects from /ex01...$(RESET)"; else \
 	echo "No objects to remove from /ex01."; \
 	fi;
 
@@ -73,7 +74,7 @@ clean:
 fclean: clean
 	@if [ -f "$(NAME)" ]; then \
 	rm -f $(NAME); \
-	echo "$(BLUE)Deleting $(NAME) from /ex01...$(RESET)"; else \
+	echo "$(RED)Deleting $(NAME) from /ex01...$(RESET)"; else \
 	echo "No Executable to remove from /ex01."; \
 	fi;
 	

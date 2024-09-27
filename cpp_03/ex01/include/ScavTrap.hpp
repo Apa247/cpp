@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 09:32:01 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/27 11:08:46 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/27 18:34:54 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	ScavTrap:	public ClapTrap
 		ScavTrap(ScavTrap const & src);
 
 		// Destructor
-		~ScavTrap(void);
+		virtual	~ScavTrap(void);
 
 		// Overload operator
 		ScavTrap &operator=(ScavTrap const & rhs);
