@@ -6,16 +6,17 @@
 #    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/27 09:23:58 by daparici          #+#    #+#              #
-#    Updated: 2024/09/27 09:26:41 by daparici         ###   ########.fr        #
+#    Updated: 2024/09/27 11:31:13 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scavTrap
+NAME 			=	scavTrap
 
-vpath 	%.hpp includes
-vpath 	%.cpp srcs
-vpath 	%.o objs
+vpath                   %.hpp includes
+vpath                   %.cpp src
+vpath                   %.o obj
 
+# controll codes
 RESET		=	\033[0m
 GREEN		=	\033[32m
 YELLOW		=	\033[33m
@@ -24,13 +25,13 @@ RED			=	\033[31m
 UP			=	\033[A
 CUT			=	\033[K
 
-INCLUDE = 	-I includes
-SRC = 		main.cpp ClapTrap.cpp ScavTrap.cpp
-OBJ_DIR = 	objs
+INCLUDE         =   -Iinclude/
+SRC = main.cpp  ClapTrap.cpp ScavTrap.cpp
+OBJ_DIR = obj
 
-CC = 		c++
-CFLAGS = 	-Wall -Wextra -Werror -std=c++98
-SANITIZE = 	-g3 -fsanitize=address -g
+CC = c++
+SANITIZER       =   -g3 -fsanitize=address -g
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 $(INCLUDE) $(SANITIZER)
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
@@ -44,13 +45,16 @@ $(OBJ_DIR)/%.o: %.cpp
 	@echo "$(GREEN)Finished [$@]$(RESET)"
 	@printf "$(UP)$(CUT)"
 
+
 all: $(NAME)
-	@printf "$(GREEN)  ____    _     ____    _    ____   ___   ___  ___  \n$(RESET)"
-	@printf "$(GREEN) |  _ \  / \   |  _ \  / \  |  _ \ |_ _| / __||_ _| \n$(RESET)"
-	@printf "$(GREEN) | | | |/ _ \  | |_) |/ _ \ | |_) | | | | |    | |  \n$(RESET)"
-	@printf "$(GREEN) | |_| / ___ \ |  __// ___ \|  _ <  | | | |__  | |  \n$(RESET)"
+	@printf "\n"
+	@printf "$(BLUE)  ____    _     ____    _    ____   ___   ___  ___  \n$(RESET)"
+	@printf "$(BLUE) |  _ \  / \   |  _ \  / \  |  _ \ |_ _| / __||_ _| \n$(RESET)"
+	@printf "$(YELLOW) | | | |/ _ \  | |_) |/ _ \ | |_) | | | | |    | |  \n$(RESET)"
+	@printf "$(RED) | |_| / ___ \ |  __// ___ \|  _ <  | | | |__  | |  \n$(RESET)"
 	@printf "$(GREEN) |____/_/   \_\|_|  /_/   \_\_| \_\|___| \___||___| \n$(RESET)"
 	@printf "$(GREEN)                                                    \n$(RESET)"
+	@printf "\n"
 
 $(NAME): $(OBJ)
 	@echo "$(YELLOW)Compiling [$(NAME)]...$(RESET)"
@@ -58,10 +62,22 @@ $(NAME): $(OBJ)
 	@echo "$(GREEN)Finished [$(NAME)]$(RESET)"
 
 clean:
-	$(RM) $(OBJ)
+	@if [ -d "$(OBJ_DIR)" ]; then \
+	rm -rf $(OBJ_DIR); \
+	echo "$(BLUE)Deleting all objects from /ex01...$(RESET)"; else \
+	echo "No objects to remove from /ex01."; \
+	fi;
+
+
 
 fclean: clean
-	$(RM) $(NAME)
+	@if [ -f "$(NAME)" ]; then \
+	rm -f $(NAME); \
+	echo "$(BLUE)Deleting $(NAME) from /ex01...$(RESET)"; else \
+	echo "No Executable to remove from /ex01."; \
+	fi;
+	
+
 
 re: fclean all
 

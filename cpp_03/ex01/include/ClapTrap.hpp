@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 09:30:57 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/27 09:31:05 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:07:22 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 class	ClapTrap
 {
-	private:
+	protected:
 		std::string	_name;
-		int			_hitPoints;
-		int			_energyPoints;
-		int			_attackDamage;
+		int			_HitPoints;
+		int			_EnergyPoints;
+		int			_AttackDamage;
 		
 	public:
 
