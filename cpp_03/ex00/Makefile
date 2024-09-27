@@ -6,7 +6,7 @@
 #    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 20:59:34 by daparici          #+#    #+#              #
-#    Updated: 2024/09/26 21:40:58 by daparici         ###   ########.fr        #
+#    Updated: 2024/09/27 08:57:53 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 INCLUDE         =   -Iinclude/
-SRC = main.cpp  clapTrap.cpp
+SRC = main.cpp  ClapTrap.cpp
 OBJ_DIR = obj
 
 CC = c++
@@ -37,7 +37,7 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 RM = rm -f
 
-$(OBJ_DIR)/%.o: $(OBJ_DIR)%.cpp
+$(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling [$@]...$(RESET)"
 	$(CC) $(CPPFLAGS) -c $< -o $@
@@ -64,6 +64,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 22:31:44 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/26 22:34:40 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/27 08:48:48 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class	ClapTrap
 
 		// Overload operator
 		ClapTrap & operator=(ClapTrap const & rhs);
+
+		// Member function
 		void	attack(std::string const & target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
