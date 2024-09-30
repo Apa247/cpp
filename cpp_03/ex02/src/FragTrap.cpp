@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 18:20:49 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/28 00:22:16 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/30 10:33:18 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 FragTrap::FragTrap(void) : ClapTrap()
 {
 	std::cout << this->_name << " : FragTrap default constructor" << std::endl;
-	this->_HitPoints = 100;
+	this->_HlsitPoints = 100;
 	this->_EnergyPoints = 100;
 	this->_AttackDamage = 30;
 }
