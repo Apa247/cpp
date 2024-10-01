@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 20:18:36 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/30 21:01:53 by daparici         ###   ########.fr       */
+/*   Updated: 2024/09/30 21:57:24 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Animal &Animal::operator=(const Animal &rhs)
 
 void Animal::makeSound() const
 {
-	std::cout << this->getType() << " says: Animal sound" << std::endl;
+	std::cout << this->getType() << " says: ¡¡Animal sound!!" << std::endl;
 }
 
 // Getters
