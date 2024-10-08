@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:23:50 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/01 22:34:33 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/08 17:53:02 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ class Animal
 {
 	protected:
 		std::string _type;
-		Animal();
 		
 	public:
 
 		// Constructors
+		Animal();
 		Animal(const Animal &cpy);
 
 		// Destructor
@@ -36,7 +36,7 @@ class Animal
 		Animal &operator=(const Animal &rhs);
 
 		// Member functions
-		virtual void makeSound() const;
+		virtual void makeSound() const = 0;
 
 		// Getters
 		std::string getType() const;

@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:44:48 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/01 20:47:41 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/08 17:49:11 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 
 int main()
 {
+	std::cout << "\033[34m Prueba ANIMAL\033[0m" << std::endl;
+	const Animal	animal;
+
+
+	std::cout << std::endl;
 	std::cout << "\033[34mConstructing\033[0m" << std::endl;
 	const Animal	*meta[10];
 	for (int i = 0; i < 10; i++)
