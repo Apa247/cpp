@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:30:20 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/08 22:30:22 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/08 23:48:11 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 #include <iostream>
 #include <string>
+#include "Form.hpp"	
 
 #define HIGHtEST_GRADE 1
 #define LOWEST_GRADE 150
+
+class Form;
 
 class Bureaucrat
 {
@@ -40,6 +43,7 @@ class Bureaucrat
 		// Member functions
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form &form);
 
 		// Getters
 		std::string getName() const;

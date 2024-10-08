@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:30:34 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/08 22:30:41 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/08 23:49:44 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,19 @@ void Bureaucrat::decrementGrade()
 	if (_grade >= LOWEST_GRADE)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade += 1;
+}
+
+void	Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signs " << form.getName() << std::endl;
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cout << this->_name << " cannot sign " << form.getName() << " because the lowest grade to sign is " << form.getSignGrade() << std::endl;
+	}
 }
 
 //----------------------------- getters ----------------------------//
