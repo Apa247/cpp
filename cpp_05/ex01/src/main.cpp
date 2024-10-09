@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:31:03 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/08 23:31:30 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/09 21:16:47 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,30 @@ int	main()
 		std::cout << e.what() << std::endl;
 	}
 
+	std::cout << "BeSigned: Thierry_copy sign F2: ";
+	try
+	{
+		f2.beSigned(thiery_copy);
+		std::cout << "OK" << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
 	thiery_copy.incrementGrade();
+	thiery.incrementGrade();
+
+	std::cout << "BeSigned: Thiery sign F2: ";
+	try
+	{
+		f2.beSigned(thiery);
+		std::cout << "OK" << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 	std::cout << "BeSigned: Thierry_copy sign F2: ";
 	try
