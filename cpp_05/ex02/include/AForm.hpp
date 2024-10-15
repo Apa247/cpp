@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:37:28 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/09 23:02:51 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/14 20:05:16 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ class AForm {
 
 		// Member functions
 		void beSigned(Bureaucrat &bureaucrat);
-		void execute(Bureaucrat const &executor) const = 0;
+		virtual void execute(Bureaucrat const &executor) const = 0;
 };
 
 std::ostream	&operator<<(std::ostream &out, const AForm &rhs);
