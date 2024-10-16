@@ -6,22 +6,32 @@
 #    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/21 01:02:08 by daparici          #+#    #+#              #
-#    Updated: 2024/09/21 14:15:16 by daparici         ###   ########.fr        #
+#    Updated: 2024/10/17 00:16:49 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = harl
 
-vpath			%.hpp includes
-vpath			%.cpp src
-vpath			%.o obj
+vpath                   %.hpp include
+vpath                   %.cpp src
+vpath                   %.o obj
 
-INCLUDE		=   -Iinclude/
-SRC = main.cpp  Harl.cpp
+# controll codes
+RESET		=	\033[0m
+GREEN		=	\033[32m
+YELLOW		=	\033[33m
+BLUE		=	\033[34m
+RED			=	\033[31m
+PURPLE		=	\033[35m
+UP			=	\033[A
+CUT			=	\033[K
+
+INCLUDE         =   -Iinclude/
+SRC = main.cpp Harl.cpp
 OBJ_DIR = obj
 
 CC = c++
-SANITIZER	=   -g3 -fsanitize=address -g
+SANITIZER       =   -g3 -fsanitize=address -g
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 $(INCLUDE) $(SANITIZER)
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
@@ -30,19 +40,46 @@ RM = rm -f
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(OBJ_DIR)
+	@echo "$(YELLOW)Compiling [$@]...$(RESET)"
 	$(CC) $(CPPFLAGS) -c $< -o $@
+	@printf "$(UP)$(CUT)"
+	@echo "$(GREEN)Finished [$@]$(RESET)"
+	@printf "$(UP)$(CUT)"
+
 
 all: $(NAME)
+	@printf "\n"
+	@printf "$(BLUE)  ____    _     ____    _    ____   ___   ___  ___  \n$(RESET)"
+	@printf "$(BLUE) |  _ \  / \   |  _ \  / \  |  _ \ |_ _| / __||_ _| \n$(RESET)"
+	@printf "$(YELLOW) | | | |/ _ \  | |_) |/ _ \ | |_) | | | | |    | |  \n$(RESET)"
+	@printf "$(RED) | |_| / ___ \ |  __// ___ \|  _ <  | | | |__  | |  \n$(RESET)"
+	@printf "$(GREEN) |____/_/   \_\|_|  /_/   \_\_| \_\|___| \___||___| \n$(RESET)"
+	@printf "$(GREEN)                                                    \n$(RESET)"
+	@printf "\n"
 
 $(NAME): $(OBJ)
+	@echo "$(YELLOW)Compiling [$(NAME)]...$(RESET)"
 	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	@echo "$(PURPLE)Finished [$(NAME)]$(RESET)"
 
 clean:
-	$(RM) $(OBJ)
+	@if [ -d "$(OBJ_DIR)" ]; then \
+	rm -rf $(OBJ_DIR); \
+	echo "$(RED)Deleting all objects from /ex01...$(RESET)"; else \
+	echo "No objects to remove from /ex01."; \
+	fi;
+
+
 
 fclean: clean
-	$(RM) $(NAME)
+	@if [ -f "$(NAME)" ]; then \
+	rm -f $(NAME); \
+	echo "$(RED)Deleting $(NAME) from /ex01...$(RESET)"; else \
+	echo "No Executable to remove from /ex01."; \
+	fi;
+	
 
-re: fclean $(NAME)
+
+re: fclean all
 
 .PHONY: all clean fclean re
