@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:19:27 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/09 21:13:08 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/16 10:33:03 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class PhoneBook
 		Contact	contact[8];
 		int		c_index;
 		int		index_serch;
-		
+
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);

@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:43:37 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/09 21:52:55 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/16 12:35:49 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	PhoneBook::addContact(void)
 		{
 			std::cout << "First Name: ";
 			if(std::getline(std::cin, input) && input != "")
-				this->contact[this->c_index].setFirstName(input);	
+				this->contact[this->c_index].setFirstName(input);
 		}
 		input = "";
 		while(!std::cin.eof() && input == "")
