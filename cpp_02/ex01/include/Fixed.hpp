@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 20:50:04 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/25 21:10:51 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/22 08:24:31 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class	Fixed
 {
 	private:
 		int					_raw;
-		static const int	_frac = 8;
+		static const int	_frac;
 
 	public:
 		Fixed(void);

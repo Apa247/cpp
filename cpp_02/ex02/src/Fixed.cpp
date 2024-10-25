@@ -6,11 +6,13 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 15:50:12 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/26 16:50:34 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/22 09:41:04 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::_frac = 8;
 
 /*------------- Contructor and Destructor -----------------*/
 
