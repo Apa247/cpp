@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:31:03 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/09 21:16:47 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/06 11:06:42 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main()
 	}
 
 	thiery_copy.incrementGrade();
-	thiery.incrementGrade();
+	//thiery.incrementGrade();
 
 	std::cout << "BeSigned: Thiery sign F2: ";
 	try

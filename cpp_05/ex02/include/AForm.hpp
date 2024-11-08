@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:37:28 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/14 20:05:16 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/07 20:02:42 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ class AForm {
 		// Member functions
 		void beSigned(Bureaucrat &bureaucrat);
 		virtual void execute(Bureaucrat const &executor) const = 0;
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 };
 
 std::ostream	&operator<<(std::ostream &out, const AForm &rhs);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:37:31 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/08 23:54:14 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/07 20:04:11 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,9 @@ void Form::beSigned(Bureaucrat &bureaucrat)
 	if (bureaucrat.getGrade() > this->_signGrade)
 		throw Form::GradeTooLowException();
 	this->_signed = true;
+}
+
+const char *Form::FormNotSignedException::what() const throw()
+{
+	return "Form needs to be signed before executing";
 }
