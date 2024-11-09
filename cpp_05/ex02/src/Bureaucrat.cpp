@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:30:34 by daparici          #+#    #+#             */
-/*   Updated: 2024/11/07 20:28:37 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/09 13:13:56 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 
 Bureaucrat::Bureaucrat() : _name("default"), _grade(LOWEST_GRADE)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : _name(name)
 {
-	std::cout << "Constructor with name " << this->_name << " and grade ";
-	std::cout << this->_grade << " called." << std::endl;
+	std::cout << "Bureaucrat constructor called" << std::endl;
 	
 	if (grade < HIGHtEST_GRADE)
 		throw Bureaucrat::GradeTooHighException();
@@ -33,6 +32,7 @@ Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : _name(name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy) : _name(cpy._name + ("_copy")), _grade(cpy._grade)
 {
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = cpy;
 }
 
@@ -40,12 +40,14 @@ Bureaucrat::Bureaucrat(const Bureaucrat &cpy) : _name(cpy._name + ("_copy")), _g
 
 Bureaucrat::~Bureaucrat()
 {
+	std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 //--------------------------- operator ----------------------------//
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs)
 {
+	std::cout << "Bureaucrat assignation operator called" << std::endl;
 	if (this != &rhs)
 		_grade = rhs._grade;
 	return *this;
@@ -73,17 +75,9 @@ void Bureaucrat::decrementGrade()
 	this->_grade += 1;
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
-	try
-	{
-		form.beSigned(*this);
-		std::cout << this->_name << " signs " << form.getName() << std::endl;
-	}
-	catch (Form::GradeTooLowException &e)
-	{
-		std::cout << this->_name << " cannot sign " << form.getName() << " because the lowest grade to sign is " << form.getSignGrade() << std::endl;
-	}
+	form.beSigned(*this);
 }
 
 //----------------------------- getters ----------------------------//

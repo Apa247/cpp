@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:30:20 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/09 22:58:24 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/09 13:15:10 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <string>
-#include "Form.hpp"	
+#include "AForm.hpp"	
 
 #define HIGHtEST_GRADE 1
 #define LOWEST_GRADE 150

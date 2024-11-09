@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:37:31 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/08 23:54:14 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/09 13:10:09 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 
 Form::Form() : _name("default"), _signed(false), _signGrade(LOWEST_GRADE), _execGrade(LOWEST_GRADE)
 {
+	std::cout << "Default Form Constructor called" << std::endl;
 }
 
 Form::Form(const std::string name, unsigned int signGrade, unsigned int execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade)
 {
+	std::cout << "Form Constructor called" << std::endl;
 	if (signGrade < HIGHtEST_GRADE || execGrade < HIGHtEST_GRADE)
 		throw Form::GradeTooHighException();
 	else if (signGrade > LOWEST_GRADE || execGrade > LOWEST_GRADE)
@@ -30,6 +32,7 @@ Form::Form(const std::string name, unsigned int signGrade, unsigned int execGrad
 
 Form::Form(const Form &cpy) : _name(cpy._name + "_copy"), _signed(cpy._signed), _signGrade(cpy._signGrade), _execGrade(cpy._execGrade)
 {
+	std::cout << "Form Copy Constructor called" << std::endl;
 	*this = cpy;
 }
 
@@ -37,12 +40,14 @@ Form::Form(const Form &cpy) : _name(cpy._name + "_copy"), _signed(cpy._signed), 
 
 Form::~Form()
 {
+	std::cout << "Form Destructor called" << std::endl;
 }
 
 //--------------------------- operator ----------------------------//
 
 Form &Form::operator=(const Form &rhs)
 {
+	std::cout << "Form Assignation operator called" << std::endl;
 	if (this != &rhs)
 		_signed = rhs._signed;
 	return *this;
@@ -94,5 +99,11 @@ void Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_signGrade)
 		throw Form::GradeTooLowException();
-	this->_signed = true;
+	else if (this->_signed == true)
+		std::cout << this->getName() << " Form already signed" << std::endl;
+	else
+	{
+		std::cout << this->getName() << " Form signed by " << bureaucrat.getName() << std::endl;
+		this->_signed = true;
+	}
 }

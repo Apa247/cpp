@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:33:19 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/08 21:40:10 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/09 10:45:52 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@
 
 Bureaucrat::Bureaucrat() : _name("default"), _grade(LOWEST_GRADE)
 {
+	std::cout << "Default Bureaucrat Constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : _name(name)
 {
+	std::cout << "Bureaucrat Constructor called" << std::endl;
+	
 	if (grade < HIGHtEST_GRADE)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > LOWEST_GRADE)
@@ -29,6 +32,7 @@ Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : _name(name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy) : _name(cpy._name + ("_copy")), _grade(cpy._grade)
 {
+	std::cout << "Bureaucrat Copy Constructor called to copy" << std::endl;
 	*this = cpy;
 }
 
@@ -36,12 +40,14 @@ Bureaucrat::Bureaucrat(const Bureaucrat &cpy) : _name(cpy._name + ("_copy")), _g
 
 Bureaucrat::~Bureaucrat()
 {
+	std::cout << "Bureaucrat Destructor called" << std::endl;
 }
 
 //--------------------------- operator ----------------------------//
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs)
 {
+	std::cout << "Bureaucrat Assignation operator called" << std::endl;
 	if (this != &rhs)
 		_grade = rhs._grade;
 	return *this;
