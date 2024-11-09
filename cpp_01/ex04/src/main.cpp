@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 12:37:01 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/20 23:47:50 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:49:43 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ bool	replaceInFile(const std::string &filename, const std::string &s1, const std
 		return false;
 	}
 	
+    // Comprobación para asegurar que el archivo no esté vacío.
+    inputFile.seekg(0, std::ios::end); // Mueve el puntero al final del archivo.
+    if (inputFile.tellg() == 0) // Comprueba si la posición del puntero es 0 (archivo vacío).
+    {
+        std::cerr << "Error: The file is empty." << std::endl;
+        return false;
+    }
+    inputFile.seekg(0, std::ios::beg); // Mueve el puntero de nuevo al inicio del archivo para la lectura.
+	
 	std::ofstream	outputFile((filename + ".replace").c_str());
 	if (!outputFile)
 	{
@@ -40,9 +49,7 @@ bool	replaceInFile(const std::string &filename, const std::string &s1, const std
 			line.insert(pos, s2);
 			pos += s2.length();
 		}
-		outputFile << line;
-		if (inputFile.peek() != EOF)
-			outputFile << std::endl;
+		outputFile << line << std::endl;
 	}
 	inputFile.close();
 	outputFile.close();

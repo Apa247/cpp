@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 18:22:56 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/19 19:19:41 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:01:39 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ HumanA::~HumanA()
 {
 }
 
-void HumanA::attack()
+void HumanA::attack() const
 {
 	std::cout << this->name << " attacks with his " << this->weapon.getType() << std::endl;
 }

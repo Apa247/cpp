@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 20:18:38 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/01 20:44:57 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/01 14:12:11 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ Cat::Cat(const Cat &cpy) : Animal(cpy)
 
 Cat::~Cat()
 {
-	std::cout << "Cat Destructor called" << std::endl;
 	delete this->_brain;
+	std::cout << "Cat Destructor called" << std::endl;
 }
 
 //------------------ Operator ------------------//

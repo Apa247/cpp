@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 18:20:03 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/19 18:59:47 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:00:37 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class HumanB
 		HumanB(std::string name, Weapon &weapon);
 		~HumanB();
 		void setWeapon(Weapon &weapon);
-		void attack();
+		void attack() const;
 		
 	private:
 		std::string _name;

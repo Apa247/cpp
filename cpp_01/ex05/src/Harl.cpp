@@ -6,18 +6,13 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 01:08:51 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/21 23:56:00 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:53:45 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-Harl::Harl() {
-    levels["1"] = &Harl::debug;
-    levels["2"] = &Harl::info;
-    levels["3"] = &Harl::warning;
-    levels["4"] = &Harl::error;
-}
+Harl::Harl() {}
 
 Harl::~Harl() {}
 
@@ -42,10 +37,14 @@ void Harl::error(void) {
 }
 
 void Harl::complain(std::string level) {
-    std::map<std::string, void (Harl::*)(void)>::iterator it = levels.find(level);
-    if (it != levels.end()) {
-        (this->*(it->second))();
-    } else {
-        std::cout << "Nivel desconocido: " << level << std::endl;
+    void (Harl::*complaints[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    std::string levels[4] = {"1", "2", "3", "4"};
+
+    for (int i = 0; i < 4; i++) {
+        if (level == levels[i]) {
+            (this->*complaints[i])();
+            return;
+        }
     }
+    std::cout << "Invalid option" << std::endl;
 }

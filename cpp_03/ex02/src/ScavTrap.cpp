@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 18:20:55 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/27 18:26:23 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/25 16:13:52 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ void	ScavTrap::attack(std::string const & target)
 
 void	ScavTrap::guardGate(void)
 {
-	if (this->_GuardGateMode)
+	if (this->_GuardGateMode == false)
 	{
-		std::cout << "ScavTrap " << this->_name << "\033[35m has entered in Gate keeper mode\033[0m" << std::endl;
+		std::cout << "ScavTrap " << this->_name << "\033[35m is now guarding the gate.\033[0m" << std::endl;
 		this->_GuardGateMode = true;
 	}
 	else
 	{
-		std::cout << "ScavTrap " << this->_name << "\033[35m has exited from Gate keeper mode\033[0m" << std::endl;
-		this->_GuardGateMode = false;
+		std::cout << "ScavTrap " << this->_name << "\033[35m finish guarding the gate\033[0m" << std::endl;
+		this->_GuardGateMode = false;	
 	}
 }

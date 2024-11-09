@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 17:41:23 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/17 00:58:28 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:41:31 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Zombie
 		Zombie(std::string name);
 		~Zombie();
 		
-		void announce(void);
+		void announce(void) const;
 };
 
 Zombie* newZombie( std::string name );

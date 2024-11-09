@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 18:20:52 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/28 00:25:55 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/25 16:16:05 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int main()
 		e.takeDamage(1);
 		e.attack("some random dude");
 		f.highFivesGuys();
+		e.highFivesGuys();
 		// for(int i = 0; i < 101; i++)
 		// 	f.attack("FragTrap-clone");
 		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 20:18:43 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/01 20:02:03 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/01 14:18:16 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ Dog::Dog(const Dog &cpy) : Animal(cpy)
 
 Dog::~Dog()
 {
-	std::cout << "Dog Destructor called" << std::endl;
 	delete this->_brain;
+	std::cout << "Dog Destructor called" << std::endl;
 }
 
 //------------------ Operator ------------------//

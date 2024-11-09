@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 16:14:10 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/19 17:05:15 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:42:12 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Zombie::Zombie(std::string name) : name(name)
 
 Zombie::~Zombie()
 {
-	std::cout << name << " is dead" << std::endl;
+	std::cout << this->name << " is dead" << std::endl;
 }
 
 void	Zombie::setName(std::string name)
@@ -32,5 +32,5 @@ void	Zombie::setName(std::string name)
 
 void	Zombie::announce(void) const
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

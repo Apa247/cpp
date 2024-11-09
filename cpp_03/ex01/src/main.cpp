@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:43:25 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/27 10:49:53 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/25 16:11:09 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
 		a.beRepaired(5);
 		a.attack("some other other robot");
 		b.beRepaired(3);
-		for (int i = 0; i < 12; i++)
+		for (int i = 0; i < 3; i++)
 			b.attack("Cody-clone");
 		b.beRepaired(3);
 		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
@@ -46,6 +46,7 @@ int main()
 		c.beRepaired(22);
 		c.takeDamage(21);
 		c.beRepaired(22);
+		c.guardGate();
 		c.guardGate();
 		c.guardGate();
 		d.attack("Savage-clone");

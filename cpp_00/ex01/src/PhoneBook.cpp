@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 17:43:37 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/16 12:35:49 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/16 12:42:08 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ std::string formatString(const std::string& input)
 void	PhoneBook::addContact(void)
 {
 	std::string	input;
+	bool		control_D = false;
 	
 	input = "";
 	if (this->c_index >= 8)
@@ -58,20 +59,26 @@ void	PhoneBook::addContact(void)
 			std::cout << "First Name: ";
 			if(std::getline(std::cin, input) && input != "")
 				this->contact[this->c_index].setFirstName(input);
+			if (std::cin.eof())
+				control_D = true;
 		}
 		input = "";
 		while(!std::cin.eof() && input == "")
 		{
 			std::cout << "Last Name: ";
 			if(std::getline(std::cin, input) && input != "")
-				this->contact[this->c_index].setLastName(input);	
+				this->contact[this->c_index].setLastName(input);
+			if (std::cin.eof())
+				control_D = true;
 		}
 		input = "";
 		while(!std::cin.eof() && input == "")
 		{
 			std::cout << "Nickname: ";
 			if(std::getline(std::cin, input) && input != "")
-				this->contact[this->c_index].setNickname(input);	
+				this->contact[this->c_index].setNickname(input);
+			if (std::cin.eof())
+				control_D = true;
 		}
 		input = "";
 		// Validación para que solo se acepten números en el campo "Phone Number"
@@ -106,6 +113,8 @@ void	PhoneBook::addContact(void)
             		}
         		}
 			}
+			if (std::cin.eof())
+				control_D = true;
 		}
 		input = "";
 		while(!std::cin.eof() && input == "")
@@ -114,9 +123,12 @@ void	PhoneBook::addContact(void)
 			if(std::getline(std::cin, input) && input != "")
 				this->contact[this->c_index].setDarkestSecret(input);
 		}
-		this->c_index++;
-		if (this->index_serch < 8)
-			this->index_serch++;
+		if (control_D == false)
+		{
+			this->c_index++;
+			if (this->index_serch < 8)
+				this->index_serch++;
+		}
 	}
 }
 

@@ -6,7 +6,7 @@
 #    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 09:57:05 by daparici          #+#    #+#              #
-#    Updated: 2024/10/01 11:03:37 by daparici         ###   ########.fr        #
+#    Updated: 2024/11/01 13:21:42 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ OBJ_DIR = obj
 
 CC = c++
 SANITIZER       =   -g3 -fsanitize=address -g
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 $(INCLUDE) $(SANITIZER)
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 $(INCLUDE) #$(SANITIZER)
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 23:58:57 by daparici          #+#    #+#             */
-/*   Updated: 2024/09/22 17:45:11 by daparici         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:50:19 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void Harl::error(void) {
 void	Harl::complain(std::string level)
 {
     void (Harl::*functions[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    // Crea un arreglo de punteros a funciones miembro de `Harl`. Cada elemento del arreglo es un puntero a una de las funciones de queja: debug, info, warning, error.
 	int					i = atoi(level.c_str());
 
 	if (i < 4)
