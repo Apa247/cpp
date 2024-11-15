@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Converter.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 12:23:29 by daparici          #+#    #+#             */
-/*   Updated: 2024/11/12 12:21:54 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:41:49 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,6 +234,144 @@ void Converter::convert(const std::string &str)
     {
         char c = str[0];
         printChar(c);
+        printInt(static_cast<int>(c));
+        printFloat(static_cast<float>(c));
+        printDouble(static_cast<double>(c));
+        return;
+    }
+
+    for (size_t i = 0; i < 6; i++) 
+    {
+        if (str == specialLiterals[i]) 
+        {
+            handlers[i]();
+            return;
+        }
+    }
+
+    if (isChar(str)) 
+    {
+        char c = str[0];
+        printChar(c);
+        printInt(static_cast<int>(c));
+        printFloat(static_cast<float>(c));
+        printDouble(static_cast<double>(c));
+        return;
+    }
+
+    if (isInt(str)) 
+    {
+        int n = static_cast<int>(std::strtol(str.c_str(), NULL, 10));
+        printInt(n);
+        printChar(static_cast<char>(n));
+        printFloat(static_cast<float>(n));
+        printDouble(static_cast<double>(n));
+        return;
+    }
+
+    if (isFloat(str)) 
+    {
+        float f = static_cast<float>(std::strtof(str.c_str(), NULL));
+        printFloat(f);
+        printChar(static_cast<char>(f));
+        printInt(static_cast<int>(f));
+        printDouble(static_cast<double>(f));
+        return;
+    }
+
+    if (isDouble(str)) 
+    {
+        double d = static_cast<double>(std::strtod(str.c_str(), NULL));
+        printDouble(d);
+        printChar(static_cast<char>(d));
+        printInt(static_cast<int>(d));
+        printFloat(static_cast<double>(d));
+        return;
+    }
+
+    std::cout << "Error: Invalid input." << std::endl;
+}
+
+/*
+void Converter::convert(const std::string &str) 
+{
+    if (str.empty()) 
+    {
+        std::cout << "Error: Empty string." << std::endl;
+        return;
+    }
+
+    if (str.length() == 1 && !std::isdigit(str[0])) 
+    {
+        char c = stvoid Converter::convert(const std::string &str) 
+{
+    if (str.empty()) 
+    {
+        std::cout << "Error: Empty string." << std::endl;
+        return;
+    }
+
+    if (str.length() == 1 && !std::isdigit(str[0])) 
+    {
+        char c = str[0];
+        printChar(c);
+        printInt(c);
+        printFloat(c);
+        printDouble(c);
+        return;
+    }
+
+    for (size_t i = 0; i < 6; i++) 
+    {
+        if (str == specialLiterals[i]) 
+        {
+            handlers[i]();
+            return;
+        }
+    }
+
+    if (isChar(str)) 
+    {
+        char c = str[0];
+        printChar(c);
+        printInt(c);
+        printFloat(c);
+        printDouble(c);
+        return;
+    }
+
+    if (isInt(str)) 
+    {
+        int n = std::strtol(str.c_str(), NULL, 10);
+        printChar(n);
+        printInt(n);
+        printFloat(n);
+        printDouble(n);
+        return;
+    }
+
+    if (isFloat(str)) 
+    {
+        float f = std::strtof(str.c_str(), NULL);
+        printChar(f);
+        printInt(f);
+        printFloat(f);
+        printDouble(f);
+        return;
+    }
+
+    if (isDouble(str)) 
+    {
+        double d = std::strtod(str.c_str(), NULL);
+        printChar(d);
+        printInt(d);
+        printFloat(d);
+        printDouble(d);
+        return;
+    }
+
+    std::cout << "Error: Invalid input." << std::endl;
+});
         printInt(c);
         printFloat(c);
         printDouble(c);
@@ -291,4 +429,5 @@ void Converter::convert(const std::string &str)
 
     std::cout << "Error: Invalid input." << std::endl;
 }
+*/
 
