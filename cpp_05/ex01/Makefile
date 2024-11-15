@@ -6,11 +6,11 @@
 #    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 22:30:08 by daparici          #+#    #+#              #
-#    Updated: 2024/10/08 22:37:16 by daparici         ###   ########.fr        #
+#    Updated: 2024/11/10 15:40:22 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 			=	bureaucrat
+NAME 			=	bureaucrat_form
 
 vpath                   %.hpp include
 vpath                   %.cpp src

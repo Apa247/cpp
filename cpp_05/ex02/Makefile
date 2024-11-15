@@ -6,11 +6,11 @@
 #    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 22:03:17 by daparici          #+#    #+#              #
-#    Updated: 2024/10/09 22:03:30 by daparici         ###   ########.fr        #
+#    Updated: 2024/11/10 15:39:59 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 			=	bureaucrat
+NAME 			=	Aform
 
 vpath                   %.hpp include
 vpath                   %.cpp src
@@ -27,7 +27,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 INCLUDE         =   -Iinclude/
-SRC = main.cpp  Bureaucrat.cpp Form.cpp
+SRC = main.cpp  Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJ_DIR = obj
 
 CC = c++
@@ -67,9 +67,8 @@ clean:
 	rm -rf $(OBJ_DIR); \
 	echo "$(RED)Deleting all objects from /ex01...$(RESET)"; else \
 	echo "No objects to remove from /ex01."; \
-	fi;
-
-
+	fi; \
+	rm -f Home_shrubbery
 
 fclean: clean
 	@if [ -f "$(NAME)" ]; then \

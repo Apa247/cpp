@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 19:58:27 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/14 20:09:41 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/10 12:32:33 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 class ShrubberyCreationForm : public AForm
 {
 	private:
-		const std::string	_target;
+		std::string	_target;
 
 	public:
 	
@@ -39,5 +39,5 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 
 		// Member functions
-		void execute(Bureaucrat const &executor) const;
+		void executeAction() const;
 };

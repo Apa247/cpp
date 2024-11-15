@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 19:54:23 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/14 19:54:48 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/10 12:32:29 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 class RobotomyRequestForm : public AForm
 {
 	private:
-		const std::string	_target;
+		std::string	_target;
 
 	public:
 	
@@ -39,5 +39,5 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
 
 		// Member functions
-		void execute(Bureaucrat const &executor) const;
+		void executeAction() const;
 };

@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:37:31 by daparici          #+#    #+#             */
-/*   Updated: 2024/11/09 13:10:09 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/10 15:55:14 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Form &Form::operator=(const Form &rhs)
 
 std::ostream &operator<<(std::ostream &out, const Form &rhs)
 {
-	out << rhs.getName() << ", form signed: " << rhs.getSigned() << ", sign grade: " << rhs.getSignGrade() << ", exec grade: " << rhs.getExecGrade();
+	out << rhs.getName() << ", form signed: " << std::boolalpha << rhs.getSigned() << ", sign grade: " << rhs.getSignGrade() << ", exec grade: " << rhs.getExecGrade();
 	return out;
 }
 

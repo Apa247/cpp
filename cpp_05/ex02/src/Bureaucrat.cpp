@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:30:34 by daparici          #+#    #+#             */
-/*   Updated: 2024/11/09 13:13:56 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/10 14:00:00 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,29 @@ void Bureaucrat::decrementGrade()
 
 void	Bureaucrat::signForm(AForm &form)
 {
-	form.beSigned(*this);
+    try
+	{
+        form.beSigned(*this);  // Throws an exception if the bureaucrat can't sign the form
+        std::cout << this->_name << " signed " << form.getName() << std::endl;
+    }
+	catch (const std::exception &e)
+	{
+        std::cout << this->_name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executes " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->_name << " can't execute " << form.getName() << " because " << e.what() << std::endl;
+	}
+	
 }
 
 //----------------------------- getters ----------------------------//

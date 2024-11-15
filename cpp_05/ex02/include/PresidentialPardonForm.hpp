@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:59:58 by daparici          #+#    #+#             */
-/*   Updated: 2024/10/14 20:08:29 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/10 12:15:41 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 class PresidentialPardonForm : public AForm
 {
 	private:
-		const std::string	_target;
+		std::string	_target;
 
 	public:
 	
@@ -39,5 +39,5 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &rhs);
 
 		// Member functions
-		void execute(Bureaucrat const &executor) const;
+		void executeAction() const;
 };

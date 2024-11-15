@@ -6,14 +6,17 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:37:28 by daparici          #+#    #+#             */
-/*   Updated: 2024/11/09 13:33:45 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/10 13:50:12 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include <fstream>
 #include <iostream>
 #include <string>
+#include <exception>
+#include <cstdlib>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -26,6 +29,8 @@ class AForm {
 		const unsigned int	_signGrade;
 		const unsigned int	_execGrade;
 
+	protected:
+		virtual void executeAction() const = 0;
 	public:
 	
 		// Constructors
@@ -44,6 +49,10 @@ class AForm {
 		bool getSigned() const;
 		unsigned int getSignGrade() const;
 		unsigned int getExecGrade() const;
+
+		// Setters
+
+		void	setIsSigned(bool isSigned);
 
 		// exceptions
 		class GradeTooHighException : public std::exception
@@ -64,9 +73,17 @@ class AForm {
 				virtual const char *what() const throw();
 		};
 
+    	class FormSignedException : public std::exception
+		{
+        	public:
+				const char *what() const throw();
+		};
+		
+		
+
 		// Member functions
 		void beSigned(Bureaucrat &bureaucrat);
-		virtual void execute(Bureaucrat const &executor) const = 0;
+		void execute(Bureaucrat const &executor) const;
 };
 
 std::ostream	&operator<<(std::ostream &out, const AForm &rhs);
