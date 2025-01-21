@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 19:57:36 by daparici          #+#    #+#             */
-/*   Updated: 2024/11/17 14:29:54 by daparici         ###   ########.fr       */
+/*   Updated: 2024/11/26 13:28:45 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class Array
 
         // Operador de acceso
         T &operator[](unsigned int index);
+        const T &operator[](unsigned int index) const;
 
         // Métodos
         unsigned int size() const;
