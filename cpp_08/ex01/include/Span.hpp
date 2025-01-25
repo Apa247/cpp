@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 19:57:48 by daparici          #+#    #+#             */
-/*   Updated: 2024/11/14 22:09:58 by daparici         ###   ########.fr       */
+/*   Updated: 2025/01/25 16:21:04 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 #include <algorithm>
 #include <iterator>
 #include <stdexcept>
+#include <numeric>
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 /*	En C++, los contenedores son estructuras de datos proporcionadas por la Biblioteca
 	Estándar de Plantillas (STL) que almacenan colecciones de objetos. Los contenedores
@@ -113,29 +117,41 @@ y qué tipo de rendimiento necesitas.
 class Span
 {
     private:
-        unsigned int		_Numbers; // Stores the integers
-        std::vector<int>	_MaxSize; // Maximum number of elements (N)
+        std::vector<int>		_Numbers; // Stores the integers
+        unsigned int			_MaxSize; // Maximum number of elements (N)
         
     public:
         
         // Constructors
-        Span(unsigned int N);
-        Span(Span const &src);
+        Span(const unsigned int N);
+        Span(const Span &src);
 
         // Destructor
         ~Span();
 
         // Operator
-        Span & operator=(Span const & rhs);
+        Span & operator=(const Span & rhs);
 
         // Member functions
-        void	        addNumber(int n);
-        int		        shortestSpan(void);
-        int		        longestSpan(void);
-        unsigned int    size(void) const;
+        void	        addNumber(const int n);
+        int		        shortestSpan(void) const;
+        int		        longestSpan(void) const;
 
         template <typename Iterator>
         void	        addNumbers(Iterator begin, Iterator end);
+		void			fillRandom(unsigned int N);
+		
+		// Exception class
+		
+		class EmptySpanException : public std::exception{
+			public:
+				virtual const char *what() const throw();
+		};
+
+		class OneNumberException : public std::exception{
+			public:
+				virtual const char *what() const throw();
+		};
 };
 
 // La definición de una función plantilla debe estar en el archivo de encabezado
@@ -145,7 +161,8 @@ class Span
 template <typename Iterator>
 void Span::addNumbers(Iterator begin, Iterator end)
 {
-    if (std::distance(begin, end) + this->_numbers.size() > this->_maxSize)
-        throw std::out_of_range("Error: Span is full");
-        _numbers.insert(_numbers.end(), begin, end);
-}
+    if (std::distance(begin, end) + this->_Numbers.size() > this->_MaxSize)
+        throw std::out_of_range("Error: _MaxSize exceeded");
+    for (Iterator it = begin; it != end; ++it)
+        this->addNumber(*it);
+};
