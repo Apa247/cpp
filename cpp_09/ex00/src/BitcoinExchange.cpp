@@ -6,11 +6,12 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 18:53:07 by daparici          #+#    #+#             */
-/*   Updated: 2025/01/26 20:03:43 by daparici         ###   ########.fr       */
+/*   Updated: 2025/01/28 23:45:05 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/BitcoinExchange.hpp"
+#include "../include/btc.hpp"
 
 BitcoinExchange::BitcoinExchange(void) : _db_path("input/data.csv") {}
 
@@ -39,7 +40,7 @@ std::string BitcoinExchange::dbPath(void) const {
 
 void BitcoinExchange::construct_db(void) {
 	
-	// Open the file
+	// Abrir el archivo
 	std::string line;
 	std::ifstream dbfile(this->_db_path.c_str());
 
@@ -49,7 +50,7 @@ void BitcoinExchange::construct_db(void) {
 
 	this->_db.clear();
 	
-	// Read the file by line
+	// Leer el archivo linea por linea
 	int ctr = -1;
 	while (getline(dbfile, line)) {
 		ctr++;
@@ -58,7 +59,7 @@ void BitcoinExchange::construct_db(void) {
 		
 		bool ignore = false;
 
-		// Split the line by comma
+		// splitear la linea por coma
 		char *ptr = strtok((char *)line.c_str(), ",");
 		std::string date;
 		std::string value;
@@ -74,8 +75,45 @@ void BitcoinExchange::construct_db(void) {
 			// std::cout << ptr << std::endl;
 			ptr = strtok(NULL, ",");
 		}
+		
+		// chekeo formato de fecha
+		if (!checkDateFormat(date) && !ignore)
+		{
+			std::cerr << "Error: Invalid date format (" << date << ")" << std::endl;
+			ignore = true;
+		}
 
-		// Check date format
-		if 
+		// chekeo formato de valor
+		if (!checkValue(value) && !ignore)
+		{
+			std::cerr << "Error: Invalid value format (" << value << ")" << std::endl;
+			ignore = true;
+		}
+
+		// si no hay errores, insertar en el mapa
+		if (!ignore)
+			this->_db[date] = strToFloat(value);
+			//std::cout << "db[\"" << date << "\"] = " << this->_db[date] << std::endl;
+	}
+	dbfile.close();
+}
+
+float BitcoinExchange::getRate(std::string date) const {
+	
+	if (this->_db.size() == 0)
+	return 0;
+
+	if (this->_db.find(date) == this->_db.end())
+	{
+		std::map<std::string, float>::iterator it;
+		std::string best_date;
+
+		for (it = this->_db.begin(); it != this->_db.end(); ++it)
+		{
+			int comp = date.compare(it->first);
+
+			// La fecha se puede ordenar alfabeticamente
+			// ATM comp 
+		}
 	}
 }
