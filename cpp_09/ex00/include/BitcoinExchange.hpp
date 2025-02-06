@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 19:25:51 by daparici          #+#    #+#             */
-/*   Updated: 2025/01/26 19:33:44 by daparici         ###   ########.fr       */
+/*   Updated: 2025/01/29 18:28:36 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class BitcoinExchange {
 
 		void construct_db(void);
 		std::string dbPath(void) const;
-		float getRate(std::string date) const;
+		float getRate(std::string date);
 
 		class CantReadDataFile : public std::exception {
 			public:

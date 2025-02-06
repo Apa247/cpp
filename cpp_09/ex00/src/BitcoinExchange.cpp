@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daparici <daparici@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 18:53:07 by daparici          #+#    #+#             */
-/*   Updated: 2025/01/28 23:45:05 by daparici         ###   ########.fr       */
+/*   Updated: 2025/02/04 21:15:14 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ void BitcoinExchange::construct_db(void) {
 	dbfile.close();
 }
 
-float BitcoinExchange::getRate(std::string date) const {
+float BitcoinExchange::getRate(std::string date){
 	
 	if (this->_db.size() == 0)
-	return 0;
+		return 0;
 
 	if (this->_db.find(date) == this->_db.end())
 	{
@@ -113,7 +113,28 @@ float BitcoinExchange::getRate(std::string date) const {
 			int comp = date.compare(it->first);
 
 			// La fecha se puede ordenar alfabeticamente
-			// ATM comp 
+			// ATM comp es -1, la fecha actual puede insertarse en la posicion de it
+			
+			if (comp == -1)
+			{
+				if (it != this->_db.begin())
+					it--;		
+				best_date = it->first;
+				break;
+			}
 		}
+		if (best_date.empty())
+		{
+			it--;
+			best_date = it->first;
+		}
+		return this->_db[best_date];
 	}
+	return this->_db[date];
 }
+
+const char* BitcoinExchange::CantReadDataFile::what() const throw() {
+	return "Error: Could not open file";
+}
+
+

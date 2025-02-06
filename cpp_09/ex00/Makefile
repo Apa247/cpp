@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: daparici <daparici@student.42.fr>          +#+  +:+       +#+         #
+#    By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/26 18:50:44 by daparici          #+#    #+#              #
-#    Updated: 2025/01/26 19:05:28 by daparici         ###   ########.fr        #
+#    Updated: 2025/02/03 21:22:24 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 INCLUDE         =   -Iinclude/
-SRC = main.cpp BitcoinExchange.cpp
+SRC = main.cpp BitcoinExchange.cpp utils.cpp
 OBJ_DIR = obj
 
 CC = c++
