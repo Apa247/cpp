@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:36:29 by daparici          #+#    #+#             */
-/*   Updated: 2025/02/23 14:24:35 by daparici         ###   ########.fr       */
+/*   Updated: 2025/02/23 16:05:51 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ int main(int argc, char **argv)
 	std::vector<int>::iterator uniqit = std::unique(sorted.begin(), sorted.end());
 	if (uniqit != sorted.end())
 	{
-		std::cerr << "Error: " << *uniqit << " is duplicated" << std::endl;
+		std::cerr << "Error: there is some duplicates values" << std::endl;
 		return 1;
 	}
 	
