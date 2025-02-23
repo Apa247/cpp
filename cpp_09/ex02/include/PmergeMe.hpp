@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:36:17 by daparici          #+#    #+#             */
-/*   Updated: 2025/02/20 19:45:17 by daparici         ###   ########.fr       */
+/*   Updated: 2025/02/23 14:43:14 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@
 # include <deque>
 # include <algorithm>
 
+# define VERBOSE false
+
 template <typename T, template <typename, typename> class Container>
 class PmergeMe
 {
 	public:
-		PmergeMe();
-		PmergeMe(Container<T, std::allocator<T> > const & src);
-		PmergeMe(PmergeMe const & src);
-		~PmergeMe();
-		PmergeMe & operator=(PmergeMe const & src);
+	PmergeMe<T, Container>(void);
+	PmergeMe<T, Container>(const PmergeMe<T, Container> &src);
+	~PmergeMe<T, Container>(void);
+	PmergeMe<T, Container>	&operator =(const PmergeMe<T, Container> &src);
 
-		Container<T, std::allocator<T> > sort(const Container<T, std::allocator<T> > & array) const;
+	Container<T, std::allocator<T> > sort(const Container<T, std::allocator<T> > &array) const;
 };
+
+# include "../src/PmergeMe.tpp"

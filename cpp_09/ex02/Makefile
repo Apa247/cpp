@@ -6,7 +6,7 @@
 #    By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 19:32:55 by daparici          #+#    #+#              #
-#    Updated: 2025/02/20 19:37:54 by daparici         ###   ########.fr        #
+#    Updated: 2025/02/23 15:21:46 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 INCLUDE         =   -Iinclude/
-SRC = main.cpp PmergeMe.cpp
+SRC = main.cpp 
 OBJ_DIR = obj
 
 CC = c++
