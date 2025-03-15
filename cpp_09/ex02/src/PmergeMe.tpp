@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:36:54 by daparici          #+#    #+#             */
-/*   Updated: 2025/03/15 03:07:13 by daparici         ###   ########.fr       */
+/*   Updated: 2025/03/16 00:09:51 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -270,7 +270,7 @@ Container<T, std::allocator<T> > PmergeMe<T, Container>::sort(const Container<T,
 	// Insertar los elementos restantes en la secuencia ordenada.
 	for (typename Container<T, std::allocator<T> >::size_type i = 0; i < pairs_sorted.size(); i++)
 	{
-		binary_search_insertion(sorted, i + 1, pairs_sorted[i].second);
+		binary_search_insertion(sorted, i, pairs_sorted[i].second);
 
 		if (VERBOSE)
 		{
