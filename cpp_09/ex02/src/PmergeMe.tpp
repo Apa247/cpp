@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:36:54 by daparici          #+#    #+#             */
-/*   Updated: 2025/02/23 15:28:24 by daparici         ###   ########.fr       */
+/*   Updated: 2025/03/15 03:07:13 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ Container<T, std::allocator<T> > binary_search_insertion(Container<T, std::alloc
 	size_t right = array.size() - 1;
 
 	// Verifico si item es menor que el primer elemento de array.
-	bool at_start = array[left] > item;
+    bool at_start = (left < array.size()) && (array[left] > item);
 
 	// Realizo una búsqueda binaria para encontrar la posición correcta de item en array.
 	// left y right son los índices que delimitan la porción del contenedor en la que se está buscando la posición de inserción.
@@ -180,8 +180,13 @@ Container<T, std::allocator<T> > binary_search_insertion(Container<T, std::alloc
 		En este caso, item debe ser insertado en la posición left dentro del contenedor.
 	*/
 	// Si VERBOSE está habilitado, imprime información sobre la inserción.
-	if (VERBOSE)
-		std::cout << "Inserting " << item << " at position " << left << " (after " << array[left - 1] << ")" << std::endl;
+    if (VERBOSE)
+    {
+        if (left > 0)
+            std::cout << "Inserting " << item << " at position " << left << " (after " << array[left - 1] << ")" << std::endl;
+        else
+            std::cout << "Inserting " << item << " at position " << left << " (at the beginning)" << std::endl;
+    }
 	return array;
 }
 
